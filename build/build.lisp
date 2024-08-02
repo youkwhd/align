@@ -2,6 +2,7 @@
 ;; see: https://lispcookbook.github.io/cl-cookbook/scripting.html#quickloading-dependencies-from-a-script
 (load "~/.sbclrc")
 
+(load "common/string.lisp")
 (load "src/args.lisp")
 (load "src/align.lisp")
 
