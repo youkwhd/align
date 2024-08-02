@@ -6,4 +6,5 @@
 (in-package :align)
 
 (defun main ()
-  (format t "Hello from Common Lisp!~&"))
+  (let ((args (align/args:args))))
+    )
