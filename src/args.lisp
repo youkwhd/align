@@ -41,4 +41,4 @@
                              (next (cddr args))))))
                       ((equal arg nil) '())
                       (t (next (rest args)))))))
-         (next (rest args)))))
+      (next (rest args)))))
