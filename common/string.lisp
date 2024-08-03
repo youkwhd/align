@@ -11,8 +11,7 @@
 
 (defun starts-with? (str what)
   (cond ((equal str "") nil)
-        ((equal str what)
-         t)
+        ((equal str what) t)
         (t (starts-with? (subseq str 0 (- (length str) 1)) what))))
 
 (defun index (str what &key (from 0))
