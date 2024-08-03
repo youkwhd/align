@@ -7,8 +7,8 @@
 (in-package :align)
 
 (defun align (str)
-  ())
+  '())
 
 (defun main ()
   (let ((args (align/args:args))))
-    (print (string:seperate "foo=bar" "=")))
+    (print (string:seperate "a=" "=")))

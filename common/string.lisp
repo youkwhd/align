@@ -23,5 +23,9 @@
 (defun seperate (str seperator)
   (let ((idx (index str seperator)))
     (if (not idx)
-      (list str "")
-      (list (subseq str 0 idx) (subseq str idx)))))
+      (cons str '())
+      (cons
+        (subseq str 0 idx)
+        (cons
+          (subseq str idx (+ (length seperator) idx))
+          (seperate (subseq str (+ (length seperator) idx)) seperator))))))
