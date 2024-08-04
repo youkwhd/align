@@ -1,6 +1,10 @@
 (defpackage :string
   (:use :cl)
-  (:export :seperate))
+  (:export #:ends-with?
+           #:starts-with?
+           #:index
+           #:seperate
+           #:split))
 
 (in-package :string)
 
@@ -26,6 +30,13 @@
       (cons str '())
       (cons
         (subseq str 0 idx)
-        (cons
-          (subseq str idx (+ (length seperator) idx))
-          (seperate (subseq str (+ (length seperator) idx)) seperator))))))
+        (cons seperator
+              (seperate (subseq str (+ (length seperator) idx)) seperator))))))
+
+(defun split (str seperator)
+  (let ((idx (index str seperator)))
+    (if (not idx)
+      (cons str '())
+      (cons
+        (subseq str 0 idx)
+        (seperate (subseq str (+ (length seperator) idx)) seperator)))))
