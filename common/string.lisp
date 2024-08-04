@@ -39,4 +39,4 @@
       (cons str '())
       (cons
         (subseq str 0 idx)
-        (seperate (subseq str (+ (length seperator) idx)) seperator)))))
+        (split (subseq str (+ idx (length seperator))) seperator)))))
