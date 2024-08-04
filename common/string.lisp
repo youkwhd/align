@@ -4,6 +4,7 @@
            #:starts-with?
            #:index
            #:filln
+           #:join
            #:seperate
            #:split))
 
@@ -29,6 +30,9 @@
   (if (= n 0)
     str
     (filln (concatenate 'string str val) val (- n 1))))
+
+(defun join (seq str)
+  (reduce (lambda (acc x) (concatenate 'string acc str x)) seq))
 
 (defun seperate (str seperator)
   (let ((idx (index str seperator)))

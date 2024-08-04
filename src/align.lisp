@@ -24,7 +24,7 @@
                         (setf (first line) (string:filln (first line) " " (- max-length (length (first line)))))
                         (recurse (rest lines)))))))
       (recurse)
-      lines)))
+      (string:join (mapcar (lambda (line) (string:join line "")) lines) (format nil "~%")))))
 
 ;; (("aqqqqqqqqb")
 ;;  ("qfoo" "=" "b")
@@ -39,4 +39,4 @@
     ;; (print (string:seperate "nothing at all" "="))
     ;; (print (string:seperate "a=b" "="))
     ;; (print (string:seperate "a=b   foo=bar" "=")))
-    (print (align (format nil "aqqqqqqqqb~%qfoo=b~%k=val") "=")))
+    (format t "~a" (align (format nil "aqqqqqqqqb~%qfoo=b~%k=val") "=")))
