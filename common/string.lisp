@@ -3,6 +3,7 @@
   (:export #:ends-with?
            #:starts-with?
            #:index
+           #:filln
            #:seperate
            #:split))
 
@@ -24,6 +25,11 @@
           ((equal sub str) nil)
           (t (index str what :from-idx (+ from-idx 1))))))
 
+(defun filln (str val n)
+  (if (= n 0)
+    str
+    (filln (concatenate 'string str val) val (- n 1))))
+
 (defun seperate (str seperator)
   (let ((idx (index str seperator)))
     (if (not idx)
@@ -31,7 +37,8 @@
       (cons
         (subseq str 0 idx)
         (cons seperator
-              (seperate (subseq str (+ (length seperator) idx)) seperator))))))
+          (cons (subseq str (+ idx (length seperator)))
+                '()))))))
 
 (defun split (str seperator)
   (let ((idx (index str seperator)))
