@@ -14,7 +14,7 @@
     nil))
 
 (defun help (program-name)
-  (format t "Usage: ~a~%" program-name)
+  (format t "Usage: ~a~% [-sep <seperator>]" program-name)
   (format t "Syntax aware text alignment utility.~%")
   (format t "~%")
   (format t "Options:~%")
@@ -26,14 +26,20 @@
   ;; TODO: what are the other exit functions?
   (sb-ext:exit :code exit-code))
 
+;; TODO: --help didn't get captured
+;;
+;; ./build/align -- --help
+;; looks like it's not a pure executable
 (defun args ()
   (let* ((args (raw))
          (program-name (first args)))
     (labels ((next (args)
               (let ((arg (first args)))
-                (cond ((equal arg "-help")
+                (cond ((or (string= arg "-h")
+                           (string= arg "--help")
+                           (string= arg "-help"))
                        (help-and-exit program-name 1))
-                      ((equal arg "-sep")
+                      ((string= arg "-sep")
                        (let ((val (second args)))
                          (if (equal val nil)
                            (help-and-exit program-name 1)
