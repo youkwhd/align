@@ -39,8 +39,8 @@
 (defun main (&optional (parent t))
   (when parent
     (handler-case (main nil)
-     (sb-sys:interactive-interrupt ()
-       (progn (sb-ext:exit :code 1))))
+      (sb-sys:interactive-interrupt ()
+        (progn (sb-ext:exit :code 1))))
     (return-from main))
 
   (let ((args (align/args:args)))
