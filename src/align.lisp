@@ -27,10 +27,6 @@
       (recurse)
       (string:join (mapcar (lambda (line) (string:join line "")) lines) (format nil "~%")))))
 
-;; (("aqqqqqqqqb")
-;;  ("qfoo" "=" "b")
-;;  ("k" "=" "val"))
-
 (defun main ()
   (let ((args (align/args:args))))
     (format t "~a" (align (format nil (io:slurp)) "=")))
