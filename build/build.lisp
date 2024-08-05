@@ -10,4 +10,6 @@
 (sb-ext:save-lisp-and-die
   "build/align"
   :toplevel 'align:main
-  :executable t)
+  :compression -7
+  :executable t
+  :save-runtime-options t)
