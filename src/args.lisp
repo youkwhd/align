@@ -26,10 +26,6 @@
   ;; TODO: what are the other exit functions?
   (sb-ext:exit :code exit-code))
 
-;; TODO: --help didn't get captured
-;;
-;; ./build/align -- --help
-;; looks like it's not a pure executable
 (defun args ()
   (let* ((args (raw))
          (program-name (first args)))
@@ -38,7 +34,7 @@
                 (cond ((or (string= arg "-h")
                            (string= arg "--help")
                            (string= arg "-help"))
-                       (help-and-exit program-name 1))
+                       (help-and-exit program-name 0))
                       ((string= arg "-sep")
                        (let ((val (second args)))
                          (if (equal val nil)
