@@ -36,6 +36,9 @@
 ;;
 ;; it is possible to do it in one swoop, but the code will
 ;; look more confusing than this.
+;;
+;; it's not runtime level so if the user's fast enough
+;; sbcl runtime will still issue the sbcl's error msg
 (defun main (&optional (parent t))
   (when parent
     (handler-case (main nil)
