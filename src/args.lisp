@@ -14,7 +14,7 @@
     nil))
 
 (defun help (program-name)
-  (format t "Usage: ~a~% [-sep <seperator>]" program-name)
+  (format t "Usage: ~a [-sep <seperator>] ~%" program-name)
   (format t "Syntax aware text alignment utility.~%")
   (format t "~%")
   (format t "Options:~%")
