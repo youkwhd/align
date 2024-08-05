@@ -2,6 +2,9 @@
 
 EXE=align
 
+# from -7 to 22 (lowest better)
+COMPRESSION_LEVEL=-7
+
 sbcl --non-interactive \
      --quit \
      --load common/io.lisp \
@@ -11,6 +14,6 @@ sbcl --non-interactive \
      --eval "(sb-ext:save-lisp-and-die
                \"$EXE\"
                :toplevel #'align:main
-               :compression -7
+               :compression $COMPRESSION_LEVEL
                :executable t
                :save-runtime-options t)"
