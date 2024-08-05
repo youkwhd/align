@@ -4,15 +4,6 @@
 
 (in-package #:align/args)
 
-(defun raw ()
-  ;; see: https://cl-cookbook.sourceforge.net/os.html
-  (or
-    #+CLISP *args*
-    #+SBCL sb-ext:*posix-argv*
-    #+LISPWORKS system:*line-arguments-list*
-    #+CMU extensions:*command-line-words*
-    nil))
-
 (defun help (program-name)
   (format t "Usage: ~a [-sep <seperator>]~%" program-name)
   (format t "Syntax aware text alignment utility.~%")
@@ -27,7 +18,7 @@
   (sb-ext:exit :code exit-code))
 
 (defun args ()
-  (let* ((args (raw))
+  (let* ((args sb-ext:*posix-argv*)
          (program-name (first args)))
     (labels ((next (args)
               (let ((arg (first args)))
