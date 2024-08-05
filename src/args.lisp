@@ -14,7 +14,6 @@
 
 (defun help-and-exit (program-name &optional (exit-code 0))
   (help program-name)
-  ;; TODO: what are the other exit functions?
   (sb-ext:exit :code exit-code))
 
 (defun args ()
