@@ -4,7 +4,7 @@
 
 (in-package #:io)
 
-(defun slurp (&optional (stream *query-io*))
+(defun slurp (&optional (stream *standard-input*))
   (concatenate 'string 
     (loop for ch = (read-char stream nil nil)
           until (or
