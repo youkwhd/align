@@ -5,6 +5,7 @@
            #:index
            #:filln
            #:join
+           #:repeat
            #:seperate
            #:split))
 
@@ -33,6 +34,12 @@
 
 (defun join (seq str)
   (reduce (lambda (acc x) (concatenate 'string acc str x)) seq))
+
+(defun repeat (str n)
+  (join
+    (loop for val = str
+          repeat n
+          collect val) ""))
 
 (defun seperate (str seperator)
   (let ((idx (index str seperator)))
