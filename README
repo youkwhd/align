@@ -1,4 +1,11 @@
 align
 =====
 
-syntax aware text alignment utility.
+Text alignment utility.
+
+Quick Start
+-----------
+
+This assumes you already have sbcl installed.
+
+    ./build.sh
