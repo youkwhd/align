@@ -27,6 +27,21 @@
       (recurse)
       (string:join (mapcar (lambda (line) (string:join line "")) lines) (format nil "~%")))))
 
-(defun main ()
-  (let ((args (align/args:args))))
-    (format t "~a" (align (format nil (io:slurp)) "=")))
+;; kinda nasty "hack".
+;;
+;; the first `main` function will set up a handler-case
+;; in case for a C-c interrupt, then calls `main` again
+;; but indicates that it's not the 'first' / parent main
+;; and it will run the app normally.
+;;
+;; it is possible to do it in one swoop, but the code will
+;; look more confusing than this.
+(defun main (&optional (parent t))
+  (when parent
+    (handler-case (main nil)
+     (sb-sys:interactive-interrupt ()
+       (progn (sb-ext:exit :code 1))))
+    (return-from main))
+
+  (let ((args (align/args:args)))
+    (format t "~a" (align (format nil (io:slurp)) "="))))
