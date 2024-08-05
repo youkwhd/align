@@ -1,0 +1,27 @@
+.TH ALIGN 1 2024-08-05 "align 0.0.1"
+
+.SH NAME
+align \- text alignment utility
+
+.SH SYNOPSIS
+.B align
+[\fB-sep <seperator>\fR]
+
+.SH OPTIONS
+.TP
+.BR \-sep " " \fIseperator
+specifies the seperator.
+
+.SH DESCRIPTION
+Aligns FILE or standard input.
+
+.SH EXAMPLES
+.TP
+.B align < \fIfoo.txt
+aligns the foo.txt FILE then print it onto standard output.
+.TP
+.B cat \fIfoo.txt \fR| \fBalign
+uses \fBcat\fR(1) to supply foo.txt into standard input.
+
+.SH SEE ALSO
+\fBcolumn\fR(1)
