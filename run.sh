@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 sbcl --non-interactive \
+     --load common/io.lisp \
      --load common/string.lisp \
      --load src/args.lisp \
      --load src/align.lisp \

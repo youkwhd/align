@@ -1,10 +1,11 @@
-(defpackage :align
-  (:use :cl)
-  (:export :main)
-  (:import-from :align/args
-                :string))
+(defpackage #:align
+  (:use #:cl)
+  (:export #:main)
+  (:import-from #:align/args)
+  (:import-from #:string)
+  (:import-from #:io))
 
-(in-package :align)
+(in-package #:align)
 
 (defun align (str seperator &key (margin 1))
   (let* ((lines (mapcar (lambda (line) (string:seperate line seperator))
@@ -32,11 +33,4 @@
 
 (defun main ()
   (let ((args (align/args:args))))
-    ;; (print (string:seperate "q" "="))
-    ;; (print (string:seperate " =" "="))
-    ;; (print (string:seperate "a=" "="))
-    ;; (print (string:seperate " =b" "="))
-    ;; (print (string:seperate "nothing at all" "="))
-    ;; (print (string:seperate "a=b" "="))
-    ;; (print (string:seperate "a=b   foo=bar" "=")))
-    (format t "~a" (align (format nil "aqqqqqqqqb~%qfoo=b~%k=val") "=")))
+    (format t "~a" (align (format nil (io:slurp)) "=")))

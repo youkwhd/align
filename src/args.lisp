@@ -1,8 +1,8 @@
-(defpackage :align/args 
-  (:use :cl)
-  (:export :args))
+(defpackage #:align/args 
+  (:use #:cl)
+  (:export #:args))
 
-(in-package :align/args)
+(in-package #:align/args)
 
 (defun raw ()
   ;; see: https://cl-cookbook.sourceforge.net/os.html

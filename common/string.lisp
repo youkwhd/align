@@ -1,5 +1,5 @@
-(defpackage :string
-  (:use :cl)
+(defpackage #:string
+  (:use #:cl)
   (:export #:ends-with?
            #:starts-with?
            #:index
@@ -8,7 +8,7 @@
            #:seperate
            #:split))
 
-(in-package :string)
+(in-package #:string)
 
 (defun ends-with? (str what)
   (cond ((equal str "") nil)
