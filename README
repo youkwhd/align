@@ -6,6 +6,12 @@ Text alignment utility.
 Quick Start
 -----------
 
-This assumes you already have sbcl installed.
+This assumes you already have sbcl installed:
 
     ./build.sh
+
+Examples
+--------
+
+Examples can be found within the examples/ folder. The input is
+identified by *.in files, expected output will be *.out files.
