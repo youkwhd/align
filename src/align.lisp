@@ -57,5 +57,6 @@
     (return-from main))
 
   (let* ((args (align/args:args))
-         (seperator (cdr (assoc :sep args))))
-    (format t "~a" (align (io:slurp) seperator))))
+         (seperator (cdr (assoc :sep args)))
+         (margin (cdr (assoc :margin args))))
+    (format t "~a" (align (io:slurp) seperator :margin margin))))
