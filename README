@@ -14,6 +14,5 @@ Examples
 --------
 
 Examples can be found within the examples/ folder. The input is
-identified by *.in files, expected output will be *.out files.
-
-The *.cmd files represents the commands used to produce output.
+identified by *.in files, expected output will be *.out files,
+the *.cmd files represents the commands used to produce output.
