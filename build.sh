@@ -1,9 +1,12 @@
 #!/usr/bin/bash
 
 EXE=align
+COMPRESSION_LEVEL=nil
 
 # from -7 to 22 (lowest better)
-COMPRESSION_LEVEL=-7
+if [ $1 = "--compress" ]; then
+    COMPRESSION_LEVEL=-7
+fi
 
 sbcl --non-interactive \
      --quit \
