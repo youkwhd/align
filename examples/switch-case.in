@@ -1,0 +1,12 @@
+switch (type) {
+case TYPE_CLIO: return "Clio";
+case TYPE_FIAT: return "Fiat";
+case TYPE_FORD: return "Ford";
+case TYPE_LEXUS: return "Lexus";
+case TYPE_MAZDA: return "Mazda";
+case TYPE_SKODA: return "Skoda";
+case TYPE_SUBARU: return "Subaru";
+case TYPE_TOYOTA: return "Toyota";
+case TYPE_PEUGOT: return "Peugot";
+case TYPE_RENAULT: return "Renault";
+}
