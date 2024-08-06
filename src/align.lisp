@@ -48,4 +48,4 @@
 
   (let* ((args (align/args:args))
          (seperator (cdr (assoc :sep args))))
-    (format t "~a" (align (format nil (io:slurp)) seperator))))
+    (format t "~a" (align (io:slurp) seperator))))
