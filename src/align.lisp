@@ -46,5 +46,6 @@
         (progn (sb-ext:exit :code 1))))
     (return-from main))
 
-  (let ((args (align/args:args)))
-    (format t "~a" (align (format nil (io:slurp)) "="))))
+  (let* ((args (align/args:args))
+         (seperator (cdr (assoc :sep args))))
+    (format t "~a" (align (format nil (io:slurp)) seperator))))
