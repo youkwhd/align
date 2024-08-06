@@ -16,7 +16,17 @@
                        :key (lambda (line)
                               (if (<= (length line) 1)
                                 0
-                                (length (first line)))))))
+                                (progn
+                                  ;; TODO: this is a hack to set spacing margin.
+                                  ;;
+                                  ;; this should be on it's own loop, but i did it here
+                                  ;; for 'optimization' (?) just so that we don't do a
+                                  ;; O(2n) loop.
+                                  (when (not (string:ends-with? (first line) (string:repeat " " margin)))
+                                    (setf (first line) (concatenate 'string (first line) (string:repeat " " margin))))
+                                  (when (not (string:starts-with? (third line) (string:repeat " " margin)))
+                                    (setf (third line) (concatenate 'string (string:repeat " " margin) (third line))))
+                                  (length (first line))))))))
     (labels ((recurse (&optional (lines lines))
                (let ((line (first lines)))
                  (cond ((not line) lines)
