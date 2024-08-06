@@ -29,7 +29,8 @@
                        (let ((val (second args)))
                          (if (not val)
                            (help-and-exit program-name 1)
-                           (cons (cons :sep val)
+                           (cons
+                             (cons :sep val)
                              (recurse (cddr args))))))
                       ((not arg) '())
                       (t (recurse (rest args)))))))
