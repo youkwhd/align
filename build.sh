@@ -3,13 +3,16 @@
 EXE=align
 COMPRESSION_LEVEL=nil
 
-# from -7 to 22 (lowest better)
 if [ $1 = "--compress" ]; then
+    # from -7 to 22 (lowest better)
     COMPRESSION_LEVEL=-7
+
+    if [ ! -z $2 ]; then
+        COMPRESSION_LEVEL=$2
+    fi
 fi
 
 sbcl --non-interactive \
-     --quit \
      --load common/io.lisp \
      --load common/string.lisp \
      --load src/args.lisp \
