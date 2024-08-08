@@ -33,7 +33,12 @@
     (filln (concatenate 'string str val) val (- n 1))))
 
 (defun join (seq str)
-  (reduce (lambda (acc x) (concatenate 'string acc str x)) seq))
+  ;; passing empty list to reduce
+  ;; seems to cause an error.
+  (if (not seq)
+    '()
+    (reduce (lambda (acc x) (concatenate 'string acc str x)) seq)))
+  
 
 (defun repeat (str n)
   (join
