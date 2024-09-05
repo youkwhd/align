@@ -1,5 +1,6 @@
 (defpackage #:string
   (:use #:cl)
+  (:import-from #:glob)
   (:export #:ends-with?
            #:starts-with?
            #:index
@@ -47,14 +48,13 @@
           collect val) ""))
 
 (defun seperate (str seperator)
-  (let ((idx (index str seperator)))
-    (if (not idx)
-      (cons str '())
+  (let ((idx (glob:index str seperator)))
+    (when (not idx) (return-from seperate (list str)))
+    (let ((len (glob:match (subseq str idx) seperator nil)))
       (cons
         (subseq str 0 idx)
-        (cons seperator
-          (cons (subseq str (+ idx (length seperator)))
-                '()))))))
+        (cons (subseq str idx (+ idx len))
+          (cons (subseq str (+ idx len)) '()))))))
 
 (defun split (str seperator)
   (let ((idx (index str seperator)))
