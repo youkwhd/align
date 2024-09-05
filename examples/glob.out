@@ -1,0 +1,6 @@
+a               = 10
+a              += 40
+boom            = a * 10
+boom           *= 40000
+eee778888eeeee  = boom
+eee778888eeeee /= 7777
