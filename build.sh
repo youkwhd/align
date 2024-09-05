@@ -14,6 +14,7 @@ fi
 
 sbcl --non-interactive \
      --load common/io.lisp \
+     --load common/glob.lisp \
      --load common/string.lisp \
      --load src/glob.lisp \
      --load src/args.lisp \
