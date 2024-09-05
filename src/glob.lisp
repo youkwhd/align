@@ -21,7 +21,7 @@
                               (cond ((equal (elt pattern 0) #\]) nil)
                                     ((and (>= (length pattern) 3) (equal (elt pattern 1) #\-))
                                       (let ((includes-ch (loop for ch from (char-code (elt pattern 0))
-                                                                      to (char-code(elt pattern 2))
+                                                                      to (char-code (elt pattern 2))
                                                                when (equal (code-char ch) (elt str 0))
                                                                return t)))
                                         (setf pattern (subseq pattern 3))
